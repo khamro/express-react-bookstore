@@ -107,7 +107,7 @@ class HistoryTable extends Component{
     render(){
         return(
             <div>
-                <InputGroup>
+                <InputGroup className='search-books'>
                     <Input placeholder="Search... Enter your book title" onChange={this.handleSerachQuery} />
                 </InputGroup>
                 <Button className='new-book-btn' onClick={this.showNewBookForm}>Add new book</Button>
@@ -134,7 +134,7 @@ class HistoryTable extends Component{
                     </thead>
                     {isEmpty(this.state.books) ? null : <tbody>{this.createBooksRows()}</tbody>}
                 </Table>
-                <div className="bookInfo">{isEmpty(this.state.selectedRow) ? null : this.showSelectedBookDetails()}</div>
+                {isEmpty(this.state.selectedRow) ? null : <div className="bookInfo">{this.showSelectedBookDetails()}</div>}
             </div>
         )
     }

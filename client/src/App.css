@@ -1,13 +1,46 @@
-.close-book-info{
+.search-books{
+  z-index: 0;
+}
+/*.close-book-info{*/
+  /*position: absolute;*/
+  /*right: 9px;*/
+  /*cursor: pointer;*/
+/*}*/
+.close-newbook-form,.close-book-info{
   cursor: pointer;
   float: right;
   margin-top: 5px;
   width: 20px;
-  position: relative;
+  position: absolute;
   right: 2px;
+}
+td, th{
+  text-align: center;
 }
 .new-book-btn{
   background: #000000;
+}
+.bookInfo{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+}
+.card{
+  overflow: auto;
+  z-index: 10;
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 30%;
+  margin: auto;
+  background: white;
 }
 .form-popup {
   position: fixed;
@@ -24,8 +57,8 @@
   overflow: auto;
   z-index: 10;
   position: absolute;
-  left: 10%;
-  right: 10%;
+  left: 15%;
+  right: 15%;
   top: 10%;
   bottom: 20%;
   margin: auto;
@@ -46,4 +79,9 @@
   position: absolute;
   right: 30px;
   margin-bottom: 10px;
+}
+.validation-error{
+  position: relative;
+  top: 40px;
+  color: red;
 }

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/',(req,res) => {
     let urlQuery = req.query.title;
-    let schema = urlQuery ? {"titleLower" : {$regex : ".*"+urlQuery.toLowerCase()+".*"}} :{};
+    let schema = urlQuery ? {"title" : {$regex : ".*"+urlQuery.toLowerCase()+".*"}} :{};
     BookModel.find(schema , '-__v').populate('genre', 'name -_id').exec((err, docs) => {
         if(err){
             console.log("error fetching history data: " +err.message);

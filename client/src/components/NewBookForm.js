@@ -7,7 +7,7 @@ class NewBookForm extends React.Component {
         genre: this.props.genres[0].name
     };
     shouldComponentUpdate(nextProps, nextState){
-        if(!isEqual(this.props.genres, nextProps.genres) || isEqual(this.state.validationError, nextState.validationError)){
+        if(!isEqual(this.props.genres, nextProps.genres) || !isEqual(this.state.validationError, nextState.validationError)){
             return true;
         }
         return false;
@@ -75,21 +75,21 @@ class NewBookForm extends React.Component {
         })
         return(
             <div className='new-book-form'>
-                <div className='close-book-info' onClick={this.props.closeFormPopUp}>
+                <div className='close-newbook-form' onClick={this.props.closeFormPopUp}>
                     X
                 </div>
                 <Form  className='input-form' onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label for="bookTitle">Tilte</Label>
-                        <Input type="text" name="title" id="bookTitle" onChange={this.handleInputChange.bind(this).bind(this)} placeholder="Please enter your book's Title" />
+                        <Label for="bookTitle">*Tilte</Label>
+                        <Input required type="text" name="title" id="bookTitle" onChange={this.handleInputChange.bind(this).bind(this)} placeholder="Please enter your book's Title" />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="bookAuthor">Author</Label>
-                        <Input type="text" name="author" id="bookAuthor" onChange={this.handleInputChange.bind(this)} placeholder="Please enter your book's Author name" />
+                        <Label for="bookAuthor">*Author</Label>
+                        <Input required type="text" name="author" id="bookAuthor" onChange={this.handleInputChange.bind(this)} placeholder="Please enter your book's Author name" />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="bookISBN">ISBN</Label>
-                        <Input type="text" name="ISBN" id="bookISBN" onChange={this.handleInputChange.bind(this)} placeholder="Please enter your book's ISBN" />
+                        <Label for="bookISBN">*ISBN</Label>
+                        <Input required type="text" name="ISBN" id="bookISBN" onChange={this.handleInputChange.bind(this)} placeholder="Please enter your book's ISBN" />
                     </FormGroup>
                     <FormGroup>
                         <Label for="bookPublicationDate">Publication Date</Label>
@@ -110,7 +110,7 @@ class NewBookForm extends React.Component {
                         <Input type="textArea" name="description" id="bookDescription" onChange={this.handleInputChange.bind(this)} placeholder="Please enter your book's description" />
                     </FormGroup>
                     <Button className='form-submit' onClick={this.addNewBook.bind(this)}>Submit</Button>
-                    <div className='validation error' >{this.state.validationError ? this.state.validationError : ""} </div>
+                    <div className='validation-error' >{this.state.validationError ? this.state.validationError : ""} </div>
                 </Form>
             </div>
         )

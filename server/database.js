@@ -29,7 +29,6 @@ mongoose.connect('mongodb://localhost/bookstore', (err,db) => {
             if(res){
                 var book = res[0];
                 book.genre = genre;
-                book.titleLower = book.title.toLowerCase();
                 new BookItem(book).save((err,item)=>{
                     if(err){
                         console.log('error happend while adding predefined books: ' + err)
